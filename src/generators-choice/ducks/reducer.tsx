@@ -1,4 +1,5 @@
 import * as types from './types'
+import { combineReducers } from 'redux'
 
 let initialSatate = {}
 export function generatorChoice(state=initialSatate, action:any){
@@ -11,3 +12,7 @@ export function generatorChoice(state=initialSatate, action:any){
 			return state;
 	}
 }
+
+export default combineReducers({
+	generatorChoice
+})

@@ -5,8 +5,9 @@ import logo from './logo.svg';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { GeneratorsChoice } from './generators-choice/GeneratorsChoice';
+import generatorsChoiceReducers from './generators-choice';
 
-const store = createStore({});
+const store = createStore(generatorsChoiceReducers);
 
 class App extends React.Component {
 	public render() {
