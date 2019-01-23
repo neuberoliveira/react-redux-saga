@@ -16,11 +16,11 @@ export function GeneratorsChoice(){
 
 
 // container part
-function mapStateToProps(state) {
+function mapStateToProps(state:any) {
     return {...state};
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch:any) {
     return bindActionCreators({
         ...actions,
     }, dispatch);

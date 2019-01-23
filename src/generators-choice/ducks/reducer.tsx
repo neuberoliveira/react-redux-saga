@@ -13,6 +13,8 @@ export function generatorChoice(state=initialSatate, action:any){
 	}
 }
 
-export default combineReducers({
+const reducer = combineReducers({
 	generatorChoice
 })
+
+export default reducer;

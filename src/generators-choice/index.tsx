@@ -4,5 +4,5 @@ export {generatorsChoiceTypes}
 import * as generatorsChoiceActions from './ducks/types'
 export {generatorsChoiceActions}
 
-import * as generatorsChoiceReducers from './ducks/types'
-export default generatorsChoiceReducers
+import reducer from './ducks/reducer'
+export default reducer
