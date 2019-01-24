@@ -3,18 +3,31 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {generatorOperations} from './ducks'
 
+
+
 export function CommitGenerator(props:any){
+	const renderOnline = ()=>(
+		<div>
+			<pre style={{textAlign:'left'}}>{props.selected}</pre>
+		</div>
+	)
+	const renderOffline = ()=>(
+		<div>
+			{props.selected}
+		</div>
+	)
+	
 	return (
 		<div>
 			<h2>Commit generator</h2>
 			<h3>Make your choice</h3>
 			<button onClick={()=>generatorOperations.pickLocal()}>Local</button>
-			<button>Online</button>
+			<button onClick={()=>generatorOperations.pickOnline()}>Online</button>
 			
 			<br /><br />
 			
-			<div>
-				{props.selected ? props.selected : 'choose an option'}
+			<div style={{margin:'0 auto', width:320}}>
+				{props.source=='online' ? renderOnline() : renderOffline()}
 			</div>
 		</div>
 	);

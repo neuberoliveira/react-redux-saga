@@ -6,7 +6,21 @@ const setCommit = (message:string)=>{
 		message,
 	}
 }
+const setSource = (source:string)=>{
+	return {
+		type: types.SET_COMMIT_SOURCE,
+		source,
+	}
+}
+
+const fetchCommit = ()=>{
+	return {
+		type: types.FETCH_COMMIT,
+	}
+}
 
 export default {
 	setCommit,
+	setSource,
+	fetchCommit,
 }

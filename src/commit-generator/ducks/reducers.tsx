@@ -3,16 +3,24 @@ import { combineReducers } from 'redux'
 
 const initialSatate = {
 	selected: null,
-	messages:['Fooo', 'Horray!!!!', 'Bar', 'HAR!']
+	source: null,
+	messages: ['Fooo', 'Horray!!!!', 'Bar', 'HAR!']
 }
 
-export function commits(state=initialSatate, action:any){
-	switch(action.type){
+export function commits(state = initialSatate, action: any) {
+	switch (action.type) {
 		case types.SET_PICKED_COMMIT:
-			const ns = Object.assign({}, state, {
+			return Object.assign({}, state, {
 				selected: action.message
 			})
-			return ns
+		case types.SET_COMMIT_SOURCE:
+			return Object.assign({}, state, {
+				source: action.source
+			})
+		case types.FETCH_COMMIT:
+			return Object.assign({}, state, {
+				selected: null
+			})
 		default:
 			return state;
 	}
