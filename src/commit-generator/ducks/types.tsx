@@ -1,0 +1,5 @@
+const SET_PICKED_COMMIT = 'SET_PICKED_COMMIT'
+
+export default {
+	SET_PICKED_COMMIT
+}
