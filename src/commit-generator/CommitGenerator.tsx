@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {generatorOperations} from './ducks'
+import {commitOperations} from './ducks'
 
 
 
@@ -24,8 +24,8 @@ export function CommitGenerator(props:any){
 		<div>
 			<h2>Commit generator</h2>
 			<h3>Make your choice</h3>
-			<button onClick={()=>generatorOperations.pickLocal()}>Local</button>
-			<button onClick={()=>generatorOperations.pickOnline()}>Online</button>
+			<button onClick={()=>commitOperations.pickLocal()}>Local</button>
+			<button onClick={()=>commitOperations.pickOnline()}>Online</button>
 			
 			<br /><br />
 			
@@ -46,7 +46,7 @@ function mapStateToProps(state:any) {
 
 function mapDispatchToProps(dispatch:any) {
     return bindActionCreators({
-        ...generatorOperations,
+        ...commitOperations,
     }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CommitGenerator);

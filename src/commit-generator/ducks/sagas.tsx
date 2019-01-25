@@ -12,7 +12,7 @@ function* fetchCommit() {
 	try {
 		const apiCall = ()=>fetch('https://helloacm.com/api/cowsay/?msg=DragonSay&f=dragon').then((resp)=>resp.json())
 		const commit = yield call(apiCall);
-		// yield put({ type: types.COMMIT_FETCH_SUCCEEDED});
+		
 		yield put(actions.setLoaderState(false));
 		yield put(actions.setCommit(commit));
 	} catch (e) {

@@ -1,11 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import reducer from "./commit-generator/ducks";
-import {commitWorker} from "./commit-generator/ducks";
+import {commitReducers, commitWorker, } from "./commit-generator/ducks";
 
 const sagaMiddleware = createSagaMiddleware()
 const reducersCombined = combineReducers({
-	generator: reducer,
+	generator: commitReducers,
 })
 
 const store = createStore(reducersCombined, applyMiddleware(sagaMiddleware))

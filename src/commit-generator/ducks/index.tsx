@@ -1,8 +1,4 @@
-import reducer from "./reducers";
-
-// export { default as duckSelectors } from "./selectors";
-export { default as generatorOperations } from "./operations";
-export { default as generatorTypes } from "./types";
-export { default as commitWorker } from "./sagas";
-
-export default reducer;
+export { default as commitTypes } from "./types"
+export { default as commitOperations } from "./operations"
+export { default as commitReducers } from "./reducers"
+export { default as commitWorker } from "./sagas"
