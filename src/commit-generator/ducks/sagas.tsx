@@ -8,13 +8,15 @@ function* commitWorker() {
 }
 
 function* fetchCommit() {
+	yield put(actions.setLoaderState(true));
 	try {
-		const apiCall = ()=>fetch('https://helloacm.com/api/cowsay/?msg=CowSay&f=dragon').then((resp)=>resp.json())
+		const apiCall = ()=>fetch('https://helloacm.com/api/cowsay/?msg=DragonSay&f=dragon').then((resp)=>resp.json())
 		const commit = yield call(apiCall);
 		// yield put({ type: types.COMMIT_FETCH_SUCCEEDED});
+		yield put(actions.setLoaderState(false));
 		yield put(actions.setCommit(commit));
 	} catch (e) {
-		yield put({ type: types.COMMIT_FETCH_FAIL, message: e.message });
+		yield put(actions.setLoaderState(false));
 	}
 }
 

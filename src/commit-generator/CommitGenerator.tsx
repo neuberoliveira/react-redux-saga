@@ -8,7 +8,10 @@ import {generatorOperations} from './ducks'
 export function CommitGenerator(props:any){
 	const renderOnline = ()=>(
 		<div>
-			<pre style={{textAlign:'left'}}>{props.selected}</pre>
+			{props.isLoading ? 
+				'calling the dragon.....' : 
+				<pre style={{textAlign:'left'}}>{props.selected}</pre>
+			}
 		</div>
 	)
 	const renderOffline = ()=>(

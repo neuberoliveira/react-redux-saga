@@ -19,8 +19,16 @@ const fetchCommit = ()=>{
 	}
 }
 
+const setLoaderState = (loading:boolean)=>{
+	return {
+		type: types.LOADING,
+		isLoading: loading
+	}
+}
+
 export default {
 	setCommit,
 	setSource,
 	fetchCommit,
+	setLoaderState,
 }

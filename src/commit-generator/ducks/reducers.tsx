@@ -4,6 +4,7 @@ import { combineReducers } from 'redux'
 const initialSatate = {
 	selected: null,
 	source: null,
+	isLoading: false,
 	messages: ['Fooo', 'Horray!!!!', 'Bar', 'HAR!']
 }
 
@@ -20,6 +21,10 @@ export function commits(state = initialSatate, action: any) {
 		case types.FETCH_COMMIT:
 			return Object.assign({}, state, {
 				selected: null
+			})
+		case types.LOADING:
+			return Object.assign({}, state, {
+				isLoading: action.isLoading
 			})
 		default:
 			return state;
