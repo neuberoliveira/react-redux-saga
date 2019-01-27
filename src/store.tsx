@@ -1,13 +1,24 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { /* createStore, */ combineReducers, /* compose, */ /* applyMiddleware */} from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import {commitReducers, commitWorker, } from "./commit-generator/ducks";
+import {configureStore} from 'redux-starter-kit'
+import {commitReducers, commitWorker } from "./commit-generator/ducks";
 
+const reduxDevTools = window['__REDUX_DEVTOOLS_EXTENSION__']
 const sagaMiddleware = createSagaMiddleware()
-const reducersCombined = combineReducers({
-	generator: commitReducers,
+const rootReducer = combineReducers({
+	commitReducers,
 })
 
-const store = createStore(reducersCombined, applyMiddleware(sagaMiddleware))
+console.log(commitWorker, sagaMiddleware)
+
+let middlewares:any[] = [sagaMiddleware]
+if(reduxDevTools){
+	// middlewares = [...middlewares, reduxDevTools]
+}
+const store = configureStore({
+	reducer: rootReducer,
+	middleware: middlewares,
+})
 
 sagaMiddleware.run(commitWorker)
 export default store

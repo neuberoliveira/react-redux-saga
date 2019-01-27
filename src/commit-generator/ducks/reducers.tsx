@@ -1,38 +1,28 @@
 import types from './types'
-import { combineReducers } from 'redux'
+import {createReducer} from 'redux-starter-kit'
 
 const initialSatate = {
 	selected: null,
-	source: null,
 	isLoading: false,
+	source: null,
 	messages: ['Fooo', 'Horray!!!!', 'Bar', 'HAR!']
 }
 
-export function commits(state = initialSatate, action: any) {
-	switch (action.type) {
-		case types.SET_PICKED_COMMIT:
-			return Object.assign({}, state, {
-				selected: action.message
-			})
-		case types.SET_COMMIT_SOURCE:
-			return Object.assign({}, state, {
-				source: action.source
-			})
-		case types.FETCH_COMMIT:
-			return Object.assign({}, state, {
-				selected: null
-			})
-		case types.LOADING:
-			return Object.assign({}, state, {
-				isLoading: action.isLoading
-			})
-		default:
-			return state;
-	}
-}
-
-const reducer = combineReducers({
-	commits
+export const commits = createReducer(initialSatate, {
+	[types.SET_PICKED_COMMIT]:(state:any, action:any)=>{
+		state.selected = action.payload
+		return state
+	},
+	[types.SET_COMMIT_SOURCE]:(state:any, action:any)=>{
+		state.source = action.payload
+	},
+	[types.FETCH_COMMIT]:(state:any)=>{
+		state.selected = null
+	},
+	[types.LOADING]:(state:any, action:any)=>{
+		state.isLoading = action.payload
+	},
 })
 
+const reducer = commits
 export default reducer;

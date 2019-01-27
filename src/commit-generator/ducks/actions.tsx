@@ -1,30 +1,10 @@
 import types from './types'
+import { createAction } from 'redux-starter-kit';
 
-const setCommit = (message:string)=>{
-	return {
-		type: types.SET_PICKED_COMMIT,
-		message,
-	}
-}
-const setSource = (source:string)=>{
-	return {
-		type: types.SET_COMMIT_SOURCE,
-		source,
-	}
-}
-
-const fetchCommit = ()=>{
-	return {
-		type: types.FETCH_COMMIT,
-	}
-}
-
-const setLoaderState = (loading:boolean)=>{
-	return {
-		type: types.LOADING,
-		isLoading: loading
-	}
-}
+const setCommit = createAction(types.SET_PICKED_COMMIT)
+const setSource = createAction(types.SET_COMMIT_SOURCE)
+const fetchCommit = createAction(types.FETCH_COMMIT)
+const setLoaderState = createAction(types.LOADING)
 
 export default {
 	setCommit,
