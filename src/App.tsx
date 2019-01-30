@@ -1,18 +1,26 @@
 import * as React from 'react';
-import './App.css';
+import { connect } from "react-redux";
 
-import { Provider } from 'react-redux';
-import store from './store'
-import EntryPoint from './EntryPoint';
+import "./App.css";
+import Header from "./componets/Header";
+import CommitGenerator from './commit-generator/CommitGenerator';
+import { bindActionCreators } from 'redux';
 
-class App extends React.Component {
-	public render() {
-		return (
-			<Provider store={store}>
-				<EntryPoint />
-			</Provider>
-		);
-	}
+const App = ()=>(
+	<div className="App">
+		<Header />
+		<CommitGenerator />
+	</div>
+)
+
+// container part
+function mapStateToProps(state:any) {
+	// console.log('map state to props', state)
+    return {}
 }
 
-export default App;
+function mapDispatchToProps(dispatch:any) {
+    return bindActionCreators({
+    }, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

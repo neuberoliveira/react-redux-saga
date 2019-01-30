@@ -24,8 +24,8 @@ export function CommitGenerator(props:any){
 		<div>
 			<h2>Commit generator</h2>
 			<h3>Make your choice</h3>
-			<button onClick={()=>commitOperations.pickLocal()}>Local</button>
-			<button onClick={()=>commitOperations.pickOnline()}>Online</button>
+			<button onClick={commitOperations.pickLocal}>Local</button>
+			<button onClick={commitOperations.pickOnline}>Online</button>
 			
 			<br /><br />
 			<div style={{margin:'0 auto', width:320}}>

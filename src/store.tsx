@@ -9,8 +9,6 @@ const rootReducer = combineReducers({
 	commitReducers,
 })
 
-console.log(commitWorker, sagaMiddleware)
-
 let middlewares:any[] = [sagaMiddleware]
 if(reduxDevTools){
 	// middlewares = [...middlewares, reduxDevTools]
